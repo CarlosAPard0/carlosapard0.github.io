@@ -1,0 +1,408 @@
+﻿:root{
+  --bg-dark: #0b1220;           /* fondo oscuro */
+  --accent-pale: #F7FFF6;      /* columna: pastel pálido */
+  --accent-strong: #CFECD6;    /* tono para detalles */
+  --text-dark: #0b1220;
+  --text-light: #e6eef2;
+  --muted: #88929a;
+  --radius: 14px;
+}
+
+/* Reset minimal */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, rgba(2,6,23,1) 0%, var(--bg-dark) 60%);
+  color:var(--text-light);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+
+  /* centrado HORIZONTAL de la columna, pero no vertical */
+  display:flex;
+  align-items:flex-start;    /* <-- importante: que el contenido arranque desde arriba */
+  justify-content:center;
+  padding:2.5rem;
+  min-height:100vh;
+}
+
+
+/* Contenedor columna central */
+.container, .wrapper, main{
+  width:100%;
+  max-width:980px;
+  background:var(--accent-pale);
+  color:var(--text-dark);
+  border-radius:var(--radius);
+  box-shadow: 0 12px 40px rgba(3,7,18,0.6);
+  padding:clamp(1rem, 2.5vw, 2.25rem);
+  display:flex;
+  flex-direction:column;
+  gap:1.25rem;
+  /* ligero efecto glass sobre fondo oscuro */
+  backdrop-filter: blur(6px);
+  margin-top: 2rem;
+}
+
+/* Estructura interna genérica en columna */
+header, nav, section, main, footer {
+  display:block;
+}
+
+.main-nav {
+    margin: 2rem auto; /* Centra la barra horizontalmente y añade margen vertical */
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+}
+/* Quitar bullets de listas de certificaciones y cursos */
+
+.edu-list,
+.cert-list,
+.course-list,
+.certificaciones ul,
+/* Quitar bullets de todas las listas dentro de la columna principal (.container/.wrapper/main) */
+.container ul, .container ol,
+.wrapper ul, .wrapper ol,
+main ul, main ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ocultar los marcadores en navegadores que implementan ::marker */
+.container li::marker,
+.wrapper li::marker,
+main li::marker {
+  display: none;
+}
+
+/* Asegurar que los li no conserven sangrados */
+.container li,
+.wrapper li,
+main li {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* Enlaces sutiles dentro de la columna principal */
+.container a,
+.wrapper a,
+main a {
+  color: rgba(11, 18, 32, 0.908);         /* tono oscuro suave sobre fondo claro */
+  text-decoration: none;
+  
+  padding-bottom: 2px;
+  transition: color .18s ease, border-color .18s ease, transform .08s;
+  font-weight: 600;
+}
+
+.container a:visited { color: rgb(11, 18, 32); }
+
+.container a:hover,
+.container a:focus {
+  color: rgb(33, 85, 190);         /* tono oscuro suave sobre fondo claro */
+  outline: none;
+}
+
+/* Exp items: degradados verticales sutiles para diferenciar experiencias */
+.exp-item, .cert-category{
+  padding: .75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(11,18,32,0.04);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  transition: transform .12s ease, box-shadow .12s ease, background .18s ease;
+}
+
+/* Variaciones sutiles según la posición para dar diferentes tonos */
+.exp-item:nth-child(4n+1){
+  background: linear-gradient(180deg, rgba(79,163,117,0.08), rgba(79,163,117,0.03));
+}
+.exp-item:nth-child(4n+2){
+  background: linear-gradient(180deg, rgba(33,85,190,0.06), rgba(33,85,190,0.02));
+}
+.exp-item:nth-child(4n+3){
+  background: linear-gradient(180deg, rgba(201,88,255,0.06), rgba(201,88,255,0.02));
+}
+.exp-item:nth-child(4n+4){
+  background: linear-gradient(180deg, rgba(255,180,90,0.06), rgba(255,180,90,0.02));
+}
+
+.exp-item:hover, .cert-category:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(3,7,18,0.08);
+}
+
+.container a:active { transform: translateY(1px); }
+
+/* Si hay enlaces en el fondo oscuro fuera de la .container (ej. header global) */
+body > a,
+.header a,
+.main-nav a {
+  color: rgb(25, 31, 35); /* más claro sobre fondo oscuro */
+}
+.cert-list ul,
+.course-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Asegurar que los items no conserven sangrados */
+.certificaciones li,
+.cursos li,
+.cert-list li,
+.course-list li {
+  padding-left: 0;
+}
+.main-nav .nav-list {
+    display: flex; /* Habilita Flexbox para colocar los elementos en fila */
+    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea en pantallas pequeñas */
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 0;
+    margin: 0;
+    justify-content: center; /* Centra los enlaces horizontalmente */
+    gap: 1.5rem; /* Espacio entre los elementos de la navegación */
+}
+
+.main-nav .nav-list li {
+    margin: 0;
+}
+
+.main-nav a {
+    text-decoration: none; /* Quita el subrayado del enlace */
+    color: #333; /* Color oscuro para el texto del enlace (ajusta si tu fondo es oscuro) */
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    transition: color 0.2s ease-in-out;
+}
+
+.main-nav a:hover,
+.main-nav a:focus {
+    color: #007bff; /* Color de realce al pasar el ratón */
+}
+/* Hero / encabezado principal */
+.hero{
+  /* Ya no necesitamos flex:row aquí, pero mantenemos los paddings y color */
+  color:inherit;
+  padding:0.25rem 0;
+}
+
+/* Contenedor principal de la sección (hero-inner container)
+   Lo definimos como columna para que la fila superior y el texto de abajo se apilen */
+.hero-inner.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Aumento el espacio entre la fila superior y el texto de abajo */
+}
+
+/* NUEVO: Contenedor para la fila superior (Imagen y Tecnologías) */
+.hero-top-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Coloca la imagen a la izquierda y las tecnologías a la derecha */
+    align-items: flex-start; /* Alinea los elementos a la parte superior */
+    gap: 1rem;
+}
+
+/* Imagen de perfil: usar solo 20% del ancho de la columna central */
+.hero img,
+.hero .avatar{
+  /* --- AJUSTES PARA HACER LA IMAGEN MÁS GRANDE --- */
+  /* Quitamos el width:25% y flex:0 0 25% para no competir con el flex del contenedor */
+  width: auto; 
+  flex: none; /* Quitamos el flex para que solo dependa del max-width */
+  max-width: 30%; /* AUMENTADO de 200px a 240px (puedes ajustarlo) */
+  /* ----------------------------------------------- */
+  
+  min-width:64px;/* mantiene una presencia mínima legible */
+  height:auto;
+  object-fit:cover;
+  border-radius:10px;
+  display:block;
+}
+
+/* Contenedor del texto principal (antes era .hero-text, ahora es .hero-main-text
+   y contiene el nombre y la profesión) */
+.hero-main-text{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:0.25rem;
+}
+
+
+/* Títulos y párrafos del hero */
+.hero h1{
+  margin:0;
+  font-size:clamp(1.35rem, 3.5vw, 2rem);
+  color:inherit;
+}
+.hero p{
+  margin:0;
+  color:inherit;
+  opacity:0.85;
+  line-height:1.45;
+}
+
+/* Estilos para el bloque de tecnologías para que se justifique a la derecha */
+.tecnologias {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Alinea el contenido (texto y logos) a la derecha */
+    flex-grow: 1; /* Permite que ocupe el espacio restante en la fila superior */
+    text-align: right;
+}
+
+.tecnologias .tech-logos {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    /* Los logos se alinean automáticamente a la derecha gracias a align-items: flex-end; en el padre */
+}
+
+.tecnologias .tech-logo {
+    /* Ajusta el tamaño de los logos si es necesario */
+    max-width: 32px;
+    height: auto;
+}
+
+/* Contenedor del Iframe: 80% de ancho y centrado */
+.iframe-container {
+    width: 80%; /* Ocupa el 80% del ancho del proyecto-card */
+    margin: 2rem auto 0; /* Centra horizontalmente y añade margen arriba */
+    position: relative;
+    overflow: hidden;
+    
+    /* Truco para mantener la relación de aspecto 16:9 (padding-top = (9/16)*100 = 56.25%) */
+    padding-top: 56.25%; 
+    height: 0;
+    border-radius: 8px;
+}
+
+/* El Iframe ocupa todo el espacio del contenedor con relación de aspecto */
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+/* Responsive: en pantallas pequeñas volver a columna para que la imagen quede encima del texto */
+@media (max-width:820px){
+  .hero{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .hero img,
+  .hero .avatar{
+    width:100%;
+    flex:0 0 auto;
+    max-width:100%;
+  }
+}
+
+/* Tarjetas y secciones internas */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:1rem;
+}
+.card{
+  background:rgba(11,18,32,0.03);
+  border-radius:12px;
+  padding:1rem;
+  box-shadow: 0 6px 18px rgba(3,7,18,0.06);
+  border-left:4px solid var(--accent-strong);
+}
+.card h3{ margin:0 0 .5rem 0; color:var(--text-dark); }
+.card p{ margin:0; color:var(--muted); font-size:0.95rem; }
+
+/* Imágenes responsivas */
+img, .avatar{
+  max-width:100%;
+  height:auto;
+  display:block;
+  border-radius:10px;
+}
+
+/* Botones */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.5rem .9rem;
+  background:transparent;
+  color:var(--text-dark);
+  border:1.5px solid rgba(11,18,32,0.06);
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+}
+.btn.primary{
+  background:var(--accent-strong);
+  color:var(--text-dark);
+  border: none;
+  box-shadow: 0 8px 20px rgba(75,160,110,0.08);
+}
+.btn:active{ transform:translateY(1px); }
+
+/* Footer compacto */
+footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+  color:var(--muted);
+  font-size:0.92rem;
+}
+
+/* Responsive */
+@media (max-width:820px){
+  .grid{ grid-template-columns:1fr; }
+  body{ padding:1.25rem; }
+  .container{ padding:1rem; border-radius:12px; }
+}
+
+/* Contenedor principal de la lista de contacto */
+.contact-list {
+  /* Opcional: añade algo de espacio entre los ítems */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espacio vertical entre cada ítem de contacto */
+}
+
+/* Enlace/Contenedor de cada ítem (Imagen + Texto) */
+.contact-item .contact-link {
+  /* Usar Flexbox para alinear los elementos internos (imagen y span) */
+  display: flex;
+  /* Alinear los ítems horizontalmente */
+  align-items: center; 
+  /* Puedes añadir un pequeño espacio horizontal si lo deseas, 
+     pero lo manejaremos con el margen del icono */
+  text-decoration: none; /* Quita el subrayado del enlace si existe */
+  color: inherit; /* Hereda el color del texto para el enlace */
+}
+
+/* Iconos de contacto (WhatsApp, Gmail, etc.) */
+.contact-icon {
+  /* Reducir el tamaño de las imágenes a la mitad */
+  width: 50px;
+  height: 50px;
+  /* Añadir espacio a la derecha de la imagen para separarla del texto */
+  margin-right: 15px;
+}
+
+/* Estilo para el texto (el <span>) */
+.contact-item .contact-link span {
+  /* Asegura que el texto esté visible y en línea con el icono */
+  white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+}
+
+/* Opcional: Estilo para la lista de items individuales, para mejorar el espaciado si es necesario */
+.contact-item {
+    margin-bottom: 10px; /* Pequeño espacio extra después de cada ítem */
+}
