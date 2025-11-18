@@ -279,6 +279,64 @@ legend{
 .contact-item a:hover{ transform: translateY(-4px); background: var(--accent-2); box-shadow: 0 6px 10px rgba(0,0,0,0.12); }
 .contact-icon{ width: 36px; height: 36px; margin-bottom: 6px; filter: invert(100%); }
 
+/* --- ESTILOS DEL INTERRUPTOR DE LENGUAJE --- */
+
+.language-switcher {
+    text-align: right;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-end; /* Alinea todo a la derecha */
+    align-items: center;
+    gap: 8px; /* Espacio entre el texto "Lenguaje" y los botones */
+    
+    /* Usa un color neutro o el color de texto oscuro */
+    color: var(--text-dark); 
+    background-color: var(--card-bg); /* Mismo fondo de la tarjeta */
+    border-top-left-radius: var(--container-radius);
+    border-top-right-radius: var(--container-radius);
+}
+
+.switcher-label {
+    font-weight: 600;
+    font-size: 0.9em;
+    color: var(--accent-1); /* Color azul oscuro de acento */
+}
+
+.lang-buttons-group {
+    display: inline-flex;
+    border: 1px solid var(--accent-1);
+    border-radius: var(--card-radius); /* Bordes redondeados para el grupo */
+    overflow: hidden; /* Asegura que el borde se vea limpio */
+}
+
+.lang-btn {
+    /* Reset de estilos */
+    background: var(--card-bg); 
+    border: none; /* Quitamos el borde individual */
+    color: var(--accent-1); 
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.85em;
+    transition: background-color var(--t-fast), color var(--t-fast);
+}
+
+/* Separa los botones, excepto el último */
+.lang-btn:not(:last-child) {
+    border-right: 1px solid var(--accent-1);
+}
+
+.lang-btn:hover {
+    background-color: var(--muted); /* Sutil fondo al pasar el mouse */
+}
+
+.lang-btn.active {
+    background-color: var(--accent-1); /* Relleno total si está activo */
+    color: var(--white);
+    pointer-events: none; /* No permitir clic si ya está activo */
+}
+
+
 /* ===== responsive ===== */
 @media (max-width: 900px){
   .hero-row1{ flex-direction: row; align-items: center; gap: 12px; }
@@ -297,3 +355,5 @@ legend{
   .hero-section{ padding: 14px; }
   .section{ width: 95%; }
 }
+
+

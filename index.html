@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Carlos A. Pardo — Portafolio</title>
+    <title data-i18n="page-title">Carlos A. Pardo — Portafolio</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" type="image/png" href="https://img.icons8.com/?size=100&id=UXwDt00ZAqdZ&format=png&color=000000">
 </head>
@@ -11,23 +11,25 @@
 <body>
 <div class="page-container">
 
-    <!-- ============================================================
-         SECCIÓN 1: HERO / ENCABEZADO
-    ============================================================ -->
     <main>
+        <div class="language-switcher">
+          <span class="switcher-label" data-i18n="language-label">Lenguaje:</span>
+          
+          <div class="lang-buttons-group">
+              <button id="lang-es" data-lang="es" class="lang-btn active">ES</button>
+              <button id="lang-en" data-lang="en" class="lang-btn">EN</button>
+          </div>
+      </div>
         <section id="hero" class="hero-section">
 
-            <!-- Fila 1: Imagen + Tecnologías -->
             <div class="hero-row1">
 
-                <!-- Foto -->
                 <div class="hero-image-container">
                     <img src="assets/img/profile.jpg" alt="Profile picture" class="hero-image" />
                 </div>
 
-                <!-- Tecnologías -->
                 <fieldset class="hero-technologies-container">
-                    <legend>Tecnologías</legend>
+                    <legend data-i18n="hero-legend-tech">Tecnologías</legend>
                     <ul class="hero-technologies-list">
 
                         <li class="technology-item">
@@ -55,10 +57,9 @@
 
             </div>
 
-            <!-- Fila 2: Nombre + subtítulo -->
             <div class="hero-row2">
-                <h1 class="hero-title">Carlos A. Pardo</h1>
-                <p class="hero-subtitle">
+                <h1 class="hero-title" data-i18n="hero-title">Carlos A. Pardo</h1>
+                <p class="hero-subtitle" data-i18n="hero-subtitle">
                     Científico de Datos | Analista de Datos | Desarrollo de aplicaciones con IA |
                     Ingeniero en Telecomunicaciones
                 </p>
@@ -66,30 +67,23 @@
 
         </section>
 
-        <!-- ============================================================
-             NAVEGACIÓN
-        ============================================================ -->
         <nav id="navegacion" class="site-navigation">
             <ul class="nav-links">
-                <li><a href="#sobre-mi">Sobre mí</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#certificaciones">Certificaciones</a></li>
-                <li><a href="#cursos">Cursos</a></li>
-                <li><a href="#experiencia">Experiencia</a></li>
-                <li><a href="#educacion">Educación</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#sobre-mi" data-i18n="nav-sobre-mi">Sobre mí</a></li>
+                <li><a href="#proyectos" data-i18n="nav-proyectos">Proyectos</a></li>
+                <li><a href="#certificaciones" data-i18n="nav-certificaciones">Certificaciones</a></li>
+                <li><a href="#cursos" data-i18n="nav-cursos">Cursos</a></li>
+                <li><a href="#experiencia" data-i18n="nav-experiencia">Experiencia</a></li>
+                <li><a href="#educacion" data-i18n="nav-educacion">Educación</a></li>
+                <li><a href="#contacto" data-i18n="nav-contacto">Contacto</a></li>
             </ul>
         </nav>
 
-        <!-- Contenedor general de secciones -->
         <div class="sections">
 
-            <!-- ============================================================
-                 SECCIÓN: SOBRE MÍ
-            ============================================================ -->
             <section id="sobre-mi" class="section sobre-mi">
-                <h2>Sobre mí</h2>
-                <p>
+                <h2 data-i18n="section-sobre-mi-h2">Sobre mí</h2>
+                <p data-i18n="section-sobre-mi-p">
                     Ingeniero en Telecomunicaciones con experiencia en operaciones de ISP, Automatización,
                     Ciencia y Análisis de Datos. Enfocado en la optimización de flujos de trabajo e
                     integración de Inteligencia Artificial para la toma de decisiones. Dominio en el
@@ -98,16 +92,12 @@
                 </p>
             </section>
 
-            <!-- ============================================================
-                 SECCIÓN: PROYECTOS
-            ============================================================ -->
             <section id="proyectos" class="section proyectos">
-                <h2>Proyectos</h2>
+                <h2 data-i18n="section-proyectos-h2">Proyectos</h2>
 
-                <!-- PROYECTO 1 -->
                 <article class="proyecto-item">
-                    <h3>Dashboard Power BI - Análisis de Talento Humano</h3>
-                    <p>
+                    <h3 data-i18n="proyecto-1-h3">Dashboard Power BI - Análisis de Talento Humano</h3>
+                    <p data-i18n="proyecto-1-p">
                         Análisis orientado al área de Talento Humano para identificar patrones de deserción,
                         evaluando factores como antigüedad, satisfacción laboral, desempeño y otras variables internas.
                     </p>
@@ -119,10 +109,9 @@
                     </div>
                 </article>
 
-                <!-- PROYECTO 2 -->
                 <article class="proyecto-item">
-                    <h3>Dashboard Power BI - Ingresos en Veterinaria</h3>
-                    <p>
+                    <h3 data-i18n="proyecto-2-h3">Dashboard Power BI - Ingresos en Veterinaria</h3>
+                    <p data-i18n="proyecto-2-p">
                         Reporte sobre ingresos según tratamientos, esterilización y servicios. Permite visualizar
                         cómo afectan estos factores al rendimiento económico.
                     </p>
@@ -134,43 +123,40 @@
                     </div>
                 </article>
 
-                <!-- PROYECTO 3 -->
                 <article class="proyecto-item">
-                    <h3>Proyecto de IA - Compañero programador local (LLM)</h3>
-                    <p>
+                    <h3 data-i18n="proyecto-3-h3">Proyecto de IA - Compañero programador local (LLM)</h3>
+                    <p data-i18n="proyecto-3-p">
                         LLM local optimizada para programación. Utilizada como herramienta clave en IEEE Xtreme 19.0,
                         mostrando su utilidad bajo presión de tiempo.
                     </p>
                     <div class="links">
-                        <a href="https://github.com/CarlosAPard0/LocalCodeMate-LLM-Coder" target="_blank">
+                        <a href="https://github.com/CarlosAPard0/LocalCodeMate-LLM-Coder" target="_blank" data-i18n="link-ver-codigo">
                             💻 Ver el Código y Detalles en GitHub
                         </a>
                     </div>
                 </article>
 
-                <!-- PROYECTO 4 -->
                 <article class="proyecto-item">
-                    <h3>Proyecto de IA - IA generadora de gatitos</h3>
-                    <p>
+                    <h3 data-i18n="proyecto-4-h3">Proyecto de IA - IA generadora de gatitos</h3>
+                    <p data-i18n="proyecto-4-p">
                         Proyecto basado en ProGAN. Entrenamiento desde cero explorando arquitectura generativa.
                         Resultados prometedores limitados por hardware.
                     </p>
                     <div class="links">
-                        <a href="https://github.com/CarlosAPard0/ProGan-Cat-Generator" target="_blank">
+                        <a href="https://github.com/CarlosAPard0/ProGan-Cat-Generator" target="_blank" data-i18n="link-ver-codigo">
                             💻 Ver el Código y Detalles en GitHub
                         </a>
                     </div>
                 </article>
 
-                <!-- PROYECTO 5 -->
                 <article class="proyecto-item">
-                    <h3>Participación en IEEEXtreme 19.0</h3>
-                    <p>
+                    <h3 data-i18n="proyecto-5-h3">Participación en IEEEXtreme 19.0</h3>
+                    <p data-i18n="proyecto-5-p">
                         Resolución de todos los problemas de la competencia IEEEXtreme 19.0 (24 horas). Uso de Python,
                         C y C++. Competencia usualmente en equipos de 3, realizada de forma individual.
                     </p>
                     <div class="links">
-                        <a href="https://github.com/CarlosAPard0/IEEEXtreme-19-All-Problems" target="_blank">
+                        <a href="https://github.com/CarlosAPard0/IEEEXtreme-19-All-Problems" target="_blank" data-i18n="link-ver-codigo">
                             💻 Ver el Código y Detalles en GitHub
                         </a>
                     </div>
@@ -178,87 +164,75 @@
 
             </section>
 
-            <!-- ============================================================
-                 CERTIFICACIONES
-            ============================================================ -->
             <section id="certificaciones" class="section certificaciones">
-                <h2>Certificaciones</h2>
+                <h2 data-i18n="section-certificaciones-h2">Certificaciones</h2>
 
-                <!-- Grupo 1 -->
                 <fieldset class="certificaciones-item">
-                    <legend>Datos e Inteligencia Artificial</legend>
+                    <legend data-i18n="cert-ai-legend">Datos e Inteligencia Artificial</legend>
                     <ul>
-                        <li><a href="/assets/pdf/AI_Engineer_for_Developers.pdf" target="_blank">AI Engineer for Developers</a></li>
-                        <li><a href="/assets/pdf/AI_Engineer_for_Data_Scientists.pdf" target="_blank">AI Engineer for Data Scientists</a></li>
-                        <li><a href="https://www.credly.com/go/PBRHa0Qg" target="_blank">MongoDB for Developers</a></li>
-                        <li><a href="/assets/pdf/Data_Analyst_in_Power_BI.pdf" target="_blank">Data Analyst in Power BI</a></li>
+                        <li><a href="/assets/pdf/AI_Engineer_for_Developers.pdf" target="_blank" data-i18n="cert-ai-1">AI Engineer for Developers</a></li>
+                        <li><a href="/assets/pdf/AI_Engineer_for_Data_Scientists.pdf" target="_blank" data-i18n="cert-ai-2">AI Engineer for Data Scientists</a></li>
+                        <li><a href="https://www.credly.com/go/PBRHa0Qg" target="_blank" data-i18n="cert-ai-3">MongoDB for Developers</a></li>
+                        <li><a href="/assets/pdf/Data_Analyst_in_Power_BI.pdf" target="_blank" data-i18n="cert-ai-4">Data Analyst in Power BI</a></li>
                     </ul>
                 </fieldset>
 
-                <!-- Grupo 2 -->
                 <fieldset class="certificaciones-item">
-                    <legend>Redes y Ciberseguridad</legend>
+                    <legend data-i18n="cert-net-legend">Redes y Ciberseguridad</legend>
                     <ul>
-                        <li><a href="https://www.credly.com/badges/0aeb8779-3f24-439a-9fbb-6cf368b9a67e/" target="_blank">Junior Cybersecurity Analyst</a></li>
-                        <li><a href="https://www.credly.com/badges/9ab5c006-c3c4-4c6d-9540-046f185a9267" target="_blank">Network Technician</a></li>
+                        <li><a href="https://www.credly.com/badges/0aeb8779-3f24-439a-9fbb-6cf368b9a67e/" target="_blank" data-i18n="cert-net-1">Junior Cybersecurity Analyst</a></li>
+                        <li><a href="https://www.credly.com/badges/9ab5c006-c3c4-4c6d-9540-046f185a9267" target="_blank" data-i18n="cert-net-2">Network Technician</a></li>
                     </ul>
                 </fieldset>
 
-                <!-- Grupo 3 -->
                 <fieldset class="certificaciones-item">
-                    <legend>Fundamentos y operaciones</legend>
+                    <legend data-i18n="cert-fund-legend">Fundamentos y operaciones</legend>
                     <ul>
                         <li>
                             <a href="https://learn.microsoft.com/api/credentials/share/en-us/CarlosPardo-2451/31C4925122343E47?sharingId"
-                                target="_blank">GitHub Foundations</a>
+                                target="_blank" data-i18n="cert-fund-1">GitHub Foundations</a>
                         </li>
-                        <li><a href="/assets/pdf/Riesgos_Laborales.pdf" target="_blank">Riesgos Laborales (solo Ecuador)</a></li>
+                        <li><a href="/assets/pdf/Riesgos_Laborales.pdf" target="_blank" data-i18n="cert-fund-2">Riesgos Laborales (solo Ecuador)</a></li>
                     </ul>
                 </fieldset>
 
             </section>
 
-            <!-- ============================================================
-                 CURSOS
-            ============================================================ -->
             <section id="cursos" class="section cursos">
-                <h2>Cursos</h2>
+                <h2 data-i18n="section-cursos-h2">Cursos</h2>
                 <ul>
-                    <li><a href="/assets/pdf/Containerization_and_Virtualization_with_Docker_and_Kubernetes.pdf" target="_blank">Containerization and Virtualization with Docker and Kubernetes</a></li>
-                    <li><a href="/assets/pdf/Reports_in_Power_BI.pdf" target="_blank">Reports in Power BI</a></li>
-                    <li><a href="/assets/pdf/Microsoft_Azure_Fundamentals_(AZ-900).pdf" target="_blank">Microsoft Azure Fundamentals</a></li>
-                    <li><a href="/assets/pdf/Developing_LLM_Applications_with_LangChain.pdf" target="_blank">Developing LLM Applications with LangChain</a></li>
+                    <li data-i18n="curso-1"><a href="/assets/pdf/Containerization_and_Virtualization_with_Docker_and_Kubernetes.pdf" target="_blank">Containerization and Virtualization with Docker and Kubernetes</a></li>
+                    <li data-i18n="curso-2"><a href="/assets/pdf/Reports_in_Power_BI.pdf" target="_blank">Reports in Power BI</a></li>
+                    <li data-i18n="curso-3"><a href="/assets/pdf/Microsoft_Azure_Fundamentals_(AZ-900).pdf" target="_blank">Microsoft Azure Fundamentals</a></li>
+                    <li data-i18n="curso-4"><a href="/assets/pdf/Developing_LLM_Applications_with_LangChain.pdf" target="_blank">Developing LLM Applications with LangChain</a></li>
                 </ul>
             </section>
 
-            <!-- ============================================================
-                 EXPERIENCIA
-            ============================================================ -->
             <section id="experiencia" class="section experiencia">
-                <h2>Experiencia</h2>
+                <h2 data-i18n="section-experiencia-h2">Experiencia</h2>
 
                 <fieldset class="experiencia-item">
-                    <legend>Autónomo - Analista y Científico de Datos</legend>
-                    <h3>2 años</h3>
-                    <p>
+                    <legend data-i18n="exp-1-legend">Autónomo - Analista y Científico de Datos</legend>
+                    <h3 data-i18n="exp-1-duracion">2 años</h3>
+                    <p data-i18n="exp-1-p">
                         Desarrollo de soluciones de BI y Data Analytics usando Python, SQL y Power BI.
                         Transformación de datos en insights accionables.
                     </p>
                 </fieldset>
 
                 <fieldset class="experiencia-item">
-                    <legend>Ingeniero de Redes - Proveedor de Servicios de Internet</legend>
-                    <h3>2 años</h3>
-                    <p>
+                    <legend data-i18n="exp-2-legend">Ingeniero de Redes - Proveedor de Servicios de Internet</legend>
+                    <h3 data-i18n="exp-2-duracion">2 años</h3>
+                    <p data-i18n="exp-2-p">
                         Gestión de infraestructura de red (routers, switches, fibra óptica) asegurando
                         disponibilidad y baja latencia.
                     </p>
                 </fieldset>
 
                 <fieldset class="experiencia-item">
-                    <legend>Especialista IT - Área Empresarial</legend>
-                    <h3>1 año</h3>
-                    <p>
+                    <legend data-i18n="exp-3-legend">Especialista IT - Área Empresarial</legend>
+                    <h3 data-i18n="exp-3-duracion">1 año</h3>
+                    <p data-i18n="exp-3-p">
                         Soporte técnico, administración de sistemas, gestión de incidentes y políticas
                         de seguridad.
                     </p>
@@ -266,56 +240,48 @@
 
             </section>
 
-            <!-- ============================================================
-                 EDUCACIÓN
-            ============================================================ -->
             <section id="educacion" class="section">
-                <h2>Educación y Habilidades Lingüísticas</h2>
+                <h2 data-i18n="educacion-h2">Educación y Habilidades Lingüísticas</h2>
 
                 <fieldset class="educacion-item">
-                    <legend>Formación Académica</legend>
-                    <h3>Ingeniero en Telecomunicaciones</h3>
-                    <p>Universidad de Cuenca</p>
-                    <p>Promoción: 2025</p>
+                    <legend data-i18n="edu-legend-academica">Formación Académica</legend>
+                    <h3 data-i18n="edu-titulo">Ingeniero en Telecomunicaciones</h3>
+                    <p data-i18n="edu-universidad">Universidad de Cuenca</p>
+                    <p data-i18n="edu-promocion">Promoción: 2025</p>
                 </fieldset>
 
                 <fieldset class="educacion-item">
-                    <legend>Idiomas</legend>
+                    <legend data-i18n="edu-legend-idiomas">Idiomas</legend>
                     <ul class="idiomas-list">
-                        <li><p><strong>Español:</strong> Nativo</p></li>
-                        <li><p><strong>Inglés:</strong> B1 Intermedio</p></li>
+                        <li><p><strong data-i18n="idioma-espanol-nombre">Español:</strong> <span data-i18n="idioma-espanol-nivel">Nativo</span></p></li>
+                        <li><p><strong data-i18n="idioma-ingles-nombre">Inglés:</strong> <span data-i18n="idioma-ingles-nivel">B1 Intermedio</span></p></li>
                     </ul>
                 </fieldset>
 
             </section>
 
-        </div><!-- /sections -->
-    </main>
+        </div></main>
 
-    <!-- ============================================================
-         FOOTER / CONTACTO
-    ============================================================ -->
     <footer id="contacto" class="site-footer">
         <div class="contact-container">
 
-            <h2>Contacto</h2>
+            <h2 data-i18n="footer-h2">Contacto</h2>
 
             <ul class="contact-list">
-
                 <li class="contact-item">
                     <a href="https://wa.me/593981831731" target="_blank">
                         <img src="https://img.icons8.com/?size=100&id=BkugfgmBwtEI&format=png&color=000000"
-                             alt="WhatsApp Icon" class="contact-icon">
-                        <span class="contact-name">WhatsApp</span>
+                            alt="WhatsApp Icon" class="contact-icon">
+                        <span class="contact-name" data-i18n="contacto-whatsapp-nombre">WhatsApp</span>
                         <span class="contact-detail">+593 98 183 1731</span>
                     </a>
                 </li>
 
                 <li class="contact-item">
-                    <a href="mailto:0981831731@gmail.com">
+                    <a href="mailto:carlosandrespardocastro@gmail.com">
                         <img src="https://img.icons8.com/?size=100&id=12580&format=png&color=000000"
-                             alt="Email Icon" class="contact-icon">
-                        <span class="contact-name">Correo</span>
+                            alt="Email Icon" class="contact-icon">
+                        <span class="contact-name" data-i18n="contacto-correo-nombre">Correo</span>
                         <span class="contact-detail">carlosandrespardocastro@gmail.com</span>
                     </a>
                 </li>
@@ -323,37 +289,34 @@
                 <li class="contact-item">
                     <a href="https://www.linkedin.com/in/carlos-a-pardo-27569a37a/" target="_blank">
                         <img src="https://img.icons8.com/?size=100&id=13930&format=png&color=000000"
-                             alt="LinkedIn Icon" class="contact-icon">
-                        <span class="contact-name">LinkedIn</span>
-                        <span class="contact-detail">Perfil Profesional</span>
+                            alt="LinkedIn Icon" class="contact-icon">
+                        <span class="contact-name" data-i18n="contacto-linkedin-nombre">LinkedIn</span>
+                        <span class="contact-detail" data-i18n="contacto-linkedin-detalle">Perfil Profesional</span>
                     </a>
                 </li>
 
                 <li class="contact-item">
                     <a href="https://github.com/CarlosAPard0" target="_blank">
                         <img src="https://img.icons8.com/?size=100&id=12599&format=png&color=000000"
-                             alt="GitHub Icon" class="contact-icon">
-                        <span class="contact-name">GitHub</span>
-                        <span class="contact-detail">Repositorios</span>
+                            alt="GitHub Icon" class="contact-icon">
+                        <span class="contact-name" data-i18n="contacto-github-nombre">GitHub</span>
+                        <span class="contact-detail" data-i18n="contacto-github-detalle">Repositorios</span>
                     </a>
                 </li>
 
             </ul>
 
-            <p class="copyright">
+            <p class="copyright" data-i18n="footer-copyright">
                 © <span id="currentYear">2025</span> Carlos A. Pardo
             </p>
 
         </div>
     </footer>
 
-</div><!-- /page-container -->
+</div><script src="assets/js/main.js" defer></script>
 
-<!-- ============================================================
-     SCRIPTS
-============================================================ -->
 <script>
-    // Actualizar año dinámicamente
+    // Actualizar año dinámicamente (deja el JS actual aquí para que se ejecute)
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
     // Smooth Scroll para enlaces internos
