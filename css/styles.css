@@ -336,7 +336,27 @@ legend{
     pointer-events: none; /* No permitir clic si ya está activo */
 }
 
+/* --- Estilos para las imágenes de los proyectos --- */
 
+/* Asegura que cualquier imagen dentro del contenedor de la tarjeta 
+   no exceda el ancho del mismo, manteniendo la proporción. */
+.proyecto-item img {
+    
+    max-width: 85%; 
+    
+    height: auto; 
+    
+    display: block; 
+    margin: 10px auto;
+    
+    border-radius: 7px;
+    box-shadow: 0 0 10px 2px rgba(196,218,250,0.27);
+}
+
+/* Si quieres añadir un pequeño margen vertical entre las imágenes: */
+.proyecto-imagen {
+    margin-bottom: 20px;
+}
 /* ===== responsive ===== */
 @media (max-width: 900px){
   .hero-row1{ flex-direction: row; align-items: center; gap: 12px; }
