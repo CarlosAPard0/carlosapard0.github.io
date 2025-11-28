@@ -1,6 +1,6 @@
 ﻿document.addEventListener('DOMContentLoaded', () => {
     // Definimos la ruta de las traducciones. Ajusta si tu archivo JSON está en otra carpeta.
-    const TRANSLATIONS_PATH = 'assets/data/translations.json';
+    const TRANSLATIONS_PATH = '/assets/data/translations.json';
     let translationsData = null;
 
     // 1. Cargar las traducciones desde el JSON
