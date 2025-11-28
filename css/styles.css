@@ -357,6 +357,36 @@ legend{
 .proyecto-imagen {
     margin-bottom: 20px;
 }
+
+.ver-mas-proyectos {  
+    text-align: center;  
+    margin: 30px 0;  
+}  
+  
+.ver-mas-proyectos a {  
+    display: inline-block;  
+    padding: 12px 24px;  
+    background: var(--accent-2);  
+    color: var(--white);  
+    text-decoration: none;  
+    border-radius: var(--card-radius);  
+    transition: background var(--t-fast);  
+}  
+  
+.ver-mas-proyectos a:hover {  
+    background: var(--accent-1);  
+}  
+  
+.back-nav {  
+    text-align: center;  
+    margin: 40px 0;  
+}  
+  
+.back-nav a {  
+    color: var(--accent-1);  
+    text-decoration: none;  
+    font-weight: 600;  
+}
 /* ===== responsive ===== */
 @media (max-width: 900px){
   .hero-row1{ flex-direction: row; align-items: center; gap: 12px; }
