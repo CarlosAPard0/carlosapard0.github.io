@@ -13,7 +13,7 @@
         "nav-educacion": "Educación",
         "nav-contacto": "Contacto",
         "section-sobre-mi-h2": "Sobre mí",
-        "section-sobre-mi-p": "Ingeniero en Telecomunicaciones con experiencia en operaciones de ISP, Automatización, Ciencia y Análisis de Datos. Enfocado en la optimización de flujos de trabajo e integración de Inteligencia Artificial para la toma de decisiones. Dominio en el desarrollo de scripts con Python, manejo de bases de datos (SQL/NoSQL) y visualización de datos con Power BI. Experiencia en infraestructura de red y contenerización (Docker).",
+        "section-sobre-mi-p": "Data & AI Engineer especializado en la optimización de flujos de trabajo e integración de modelos predictivos para la toma de decisiones. Experto en el ciclo de vida del dato: desde la ingesta con arquitecturas Cloud (Azure) y SQL, hasta la visualización avanzada en Power BI. Con una sólida base en ingeniería, combino la automatización con Python y la contenerización (Docker) para escalar soluciones de Inteligencia Artificial.",
         "section-proyectos-h2": "Proyectos",
         "proyecto-1-h3": "Analista de Datos - Análisis de Talento Humano",
         "proyecto-1-p": "Análisis orientado al área de Talento Humano para identificar patrones de deserción, evaluando factores como antigüedad, satisfacción laboral, desempeño y otras variables internas.",
@@ -84,7 +84,12 @@
         "proyecto-8-h3": "Ingeniería de Datos - End-to-End-Azure-On-Premise-to-Insights",
         "proyecto-8-p": "Implementación de un pipeline de Ingeniería de Datos completo (End-to-End) para migrar datos on-premises a Azure. Se utiliza Azure Data Factory para la orquestación, Azure Databricks para la transformación a gran escala, y Azure Synapse como capa analítica. El proyecto asegura el conjunto de datos de Oportunidades de Venta (CRM) y lo convierte en insights de negocio clave, visualizados en un informe de Power BI. Además se utiliza Logic Apps para la gestión de alertas con envío de correos para eventos.",
         "proyecto-9-h3": "Ingeniería de Datos - End-to-End-Azure-On-Premise-to-Insights",
-        "proyecto-9-p": "Implementación de un pipeline de Ingeniería de Datos completo (End-to-End) para migrar datos on-premises a Azure. Se utiliza Azure Data Factory para la orquestación, Azure Databricks para la transformación a gran escala, y Azure Synapse como capa analítica. El proyecto asegura el conjunto de datos de Oportunidades de Venta (CRM) y lo convierte en insights de negocio clave, visualizados en un informe de Power BI. Además se utiliza Logic Apps para la gestión de alertas con envío de correos para eventos."
+        "proyecto-9-p": "Implementación de un pipeline de Ingeniería de Datos completo (End-to-End) para migrar datos on-premises a Azure. Se utiliza Azure Data Factory para la orquestación, Azure Databricks para la transformación a gran escala, y Azure Synapse como capa analítica. El proyecto asegura el conjunto de datos de Oportunidades de Venta (CRM) y lo convierte en insights de negocio clave, visualizados en un informe de Power BI. Además se utiliza Logic Apps para la gestión de alertas con envío de correos para eventos.",
+        "filter-label": "Especialidad:",
+    "filter-all": "Todos los proyectos",
+    "filter-sci": "Ciencia de Datos",
+    "filter-ana": "Análisis de Datos",
+    "filter-eng": "Ingeniería de Datos"
     },
     "en": {
         "page-title": "Carlos A. Pardo — Portfolio",
@@ -100,7 +105,7 @@
         "nav-educacion": "Education",
         "nav-contacto": "Contact",
         "section-sobre-mi-h2": "About Me",
-        "section-sobre-mi-p": "Telecommunications Engineer with experience in ISP operations, Automation, Data Science and Analysis. Focused on optimizing workflows and integrating Artificial Intelligence for decision making. Proficient in Python scripting, database management (SQL/NoSQL), and data visualization with Power BI. Experience in network infrastructure and containerization (Docker).",
+        "section-sobre-mi-p": "Data & AI Engineer specialized in workflow optimization and the integration of predictive models for decision-making. Expert in the data lifecycle: from ingestion using Cloud architectures (Azure) and SQL, to advanced visualization in Power BI. With a strong engineering background, I combine Python automation and containerization (Docker) to scale Artificial Intelligence solutions.",
         "section-proyectos-h2": "Projects",
         "proyecto-1-h3": "Data Analyst - Human Talent Analysis",
         "proyecto-1-p": "Analysis focused on the Human Talent area to identify patterns of turnover, evaluating factors such as tenure, job satisfaction, performance, and other internal variables.",
@@ -170,6 +175,11 @@
         "proyecto-8-h3": "Data Engineering - End-to-End-Azure-On-Premise-to-Insights",
         "proyecto-8-p": "Implementation of a complete End-to-End Data Engineering pipeline to migrate data from on-premises to Azure. The solution leverages Azure Data Factory for orchestration, Azure Databricks for large-scale transformation, and Azure Synapse as the analytical layer. The project secures the CRM Sales Opportunities dataset and converts it into key business insights, visualized in a Power BI report. Additionally, Logic Apps are used for alert management and email notifications for pipeline events.",
         "proyecto-9-h3": "Data Engineering - End-to-End-Azure-On-Premise-to-Insights",
-        "proyecto-9-p": "Implementation of a complete End-to-End Data Engineering pipeline to migrate data from on-premises to Azure. The solution leverages Azure Data Factory for orchestration, Azure Databricks for large-scale transformation, and Azure Synapse as the analytical layer. The project secures the CRM Sales Opportunities dataset and converts it into key business insights, visualized in a Power BI report. Additionally, Logic Apps are used for alert management and email notifications for pipeline events."
+        "proyecto-9-p": "Implementation of a complete End-to-End Data Engineering pipeline to migrate data from on-premises to Azure. The solution leverages Azure Data Factory for orchestration, Azure Databricks for large-scale transformation, and Azure Synapse as the analytical layer. The project secures the CRM Sales Opportunities dataset and converts it into key business insights, visualized in a Power BI report. Additionally, Logic Apps are used for alert management and email notifications for pipeline events.",
+    "filter-label": "Specialty:",
+    "filter-all": "All Projects",
+    "filter-sci": "Data Science",
+    "filter-ana": "Data Analysis",
+    "filter-eng": "Data Engineering"
     }
 }

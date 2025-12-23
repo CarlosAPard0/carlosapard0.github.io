@@ -18,13 +18,28 @@
             <button id="lang-en" data-lang="en" class="lang-btn">EN</button>  
         </div>  
     </div>  
+    <div class="filter-container">
+    <label for="category-filter" data-i18n="filter-label">Especialidad:</label>
+    <select id="category-filter" class="styled-select">
+        <option value="all" data-i18n="filter-all">Todos los proyectos</option>
+        <option value="science" data-i18n="filter-sci">Ciencia de Datos</option>
+        <option value="analysis" data-i18n="filter-ana">Análisis de Datos</option>
+        <option value="engineering" data-i18n="filter-eng">Ingeniería de Datos</option>
+    </select>
+</div>
     <main>  
         <section id="proyectos-completos" class="section proyectos">  
             <h1 data-i18n="section-proyectos-h2">Proyectos</h1>  
               
             <!-- Todos los proyectos aquí -->  
-            <article class="proyecto-item">
+            <article class="proyecto-item" data-category="analysis">
                     <h3 data-i18n="proyecto-1-h3">Dashboard Power BI - Análisis de Talento Humano</h3>
+                    <div class="project-tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">DAX</span>
+                        <span class="tag">Power Query</span>
+                    </div>
                     <p data-i18n="proyecto-1-p">
                         Análisis orientado al área de Talento Humano para identificar patrones de deserción,
                         evaluando factores como antigüedad, satisfacción laboral, desempeño y otras variables internas.
@@ -37,8 +52,14 @@
                     </div>
                 </article>
 
-                <article class="proyecto-item">
+                <article class="proyecto-item" data-category="analysis">
                     <h3 data-i18n="proyecto-2-h3">Dashboard Power BI - Ingresos en Veterinaria</h3>
+                    <div class="project-tags">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">DAX</span>
+                        <span class="tag">Power Query</span>
+                    </div>
                     <p data-i18n="proyecto-2-p">
                         Reporte sobre ingresos según tratamientos, esterilización y servicios. Permite visualizar
                         cómo afectan estos factores al rendimiento económico.
@@ -51,9 +72,17 @@
                     </div>
                 </article>
                 
-              <article class="proyecto-item">
+              <article class="proyecto-item" data-category="science">
                   <h3 data-i18n="proyecto-6-h3">Ciencia de Datos - Predicción de Sobrevivientes del Titanic</h3>
-
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">EDA</span>
+                        <span class="tag">Logistic Reg</span>
+                        <span class="tag">SVM</span>
+                        <span class="tag">RF</span>
+                        <span class="tag">XGBoost</span>
+                        <span class="tag">Neural Network</span>
+                    </div>
                   <p data-i18n="proyecto-6-p">
                       Proyecto de ciencia de datos enfocado en construir varios modelos avanzados capaces de predecir la probabilidad de supervivencia de los pasajeros del Titanic. Incluye un pipeline completo: análisis exploratorio, limpieza de datos, ingeniería de características y modelado con XGBoost, logrando un rendimiento altamente estable mediante validación cruzada (RMSE ≈ 0.056). La imagen a continuación muestra el top mejores modelos encontrados para este problema y las características más relevantes para sobrevivir. Aquí descata el título con casi un 60% de influencia en si una persona hubiera sobrevivido o no.
                   </p>
@@ -72,8 +101,16 @@
                   </div>
               </article>
 
-              <article class="proyecto-item">
+              <article class="proyecto-item" data-category="science">
                   <h3 data-i18n="proyecto-7-h3">Ciencia de Datos - Predicción de Accidentes</h3>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">EDA</span>
+                        <span class="tag">Matplotlib</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">XGBoost</span>
+                        <span class="tag">Pandas</span>
+                    </div>
 
                   <p data-i18n="proyecto-7-p">
                       Proyecto orientado a identificar patrones de riesgo y predecir la probabilidad de accidentes utilizando técnicas avanzadas de ciencia de datos y machine learning. El trabajo incluye limpieza y normalización de datos, análisis exploratorio profundo, ingeniería de características basada en factores humanos, ambientales y operativos, y construcción de modelos predictivos capaces de anticipar incidentes con alta precisión.
@@ -100,8 +137,16 @@ El objetivo principal es apoyar la toma de decisiones preventivas mediante model
 
 
 
-                <article class="proyecto-item">
+                <article class="proyecto-item" data-category="science">
                     <h3 data-i18n="proyecto-3-h3">Proyecto de IA - Compañero programador local (LLM)</h3>
+                    <div class="project-tags">
+                        <span class="tag">LLM</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Prompt Engineering</span>
+                        <span class="tag">RAG</span>
+                        <span class="tag">Data Base</span>
+                        <span class="tag">LangChain</span>
+                    </div>
                     <p data-i18n="proyecto-3-p">
                         LLM local optimizada para programación. Utilizada como herramienta clave en IEEE Xtreme 19.0,
                         mostrando su utilidad bajo presión de tiempo.
@@ -113,8 +158,14 @@ El objetivo principal es apoyar la toma de decisiones preventivas mediante model
                     </div>
                 </article>
 
-                <article class="proyecto-item">
+                <article class="proyecto-item" data-category="science">
                     <h3 data-i18n="proyecto-4-h3">Proyecto de IA - IA generadora de gatitos</h3>
+                    <div class="project-tags">
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">Computer Vision</span>
+                        <span class="tag">GANs</span>
+                        <span class="tag">Deep Learning</span>
+                    </div>
                     <p data-i18n="proyecto-4-p">
                         Proyecto basado en ProGAN. Entrenamiento desde cero explorando arquitectura generativa.
                         Resultados prometedores limitados por hardware.
@@ -126,8 +177,14 @@ El objetivo principal es apoyar la toma de decisiones preventivas mediante model
                     </div>
                 </article>
 
-                <article class="proyecto-item">
+                <article class="proyecto-item" data-category="science">
                     <h3 data-i18n="proyecto-5-h3">Participación en IEEEXtreme 19.0</h3>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">C/C++</span>
+                        <span class="tag">Algorithms</span>
+                        <span class="tag">Data Structures</span>
+                    </div>
                     <p data-i18n="proyecto-5-p">
                         Resolución de todos los problemas de la competencia IEEEXtreme 19.0 (24 horas). Uso de Python,
                         C y C++. Competencia usualmente en equipos de 3, realizada de forma individual.
@@ -138,8 +195,15 @@ El objetivo principal es apoyar la toma de decisiones preventivas mediante model
                         </a>
                     </div>
                 </article>
-                <article class="proyecto-item">
+                <article class="proyecto-item" data-category="engineering">
                     <h3 data-i18n="proyecto-9-h3"></h3>
+                    <div class="project-tags">
+                        <span class="tag">Azure Data Factory</span>
+                        <span class="tag">SQL Server</span>
+                        <span class="tag">Databricks</span>
+                        <span class="tag">Power BI</span>
+                        <span class="tag">ETL</span>
+                    </div>
                     <p data-i18n="proyecto-9-p"></p>
                     <div class="iframe-container">
                         <iframe title="Dashboard Proyecto 9"
