@@ -50,25 +50,32 @@
         });
     };
 
-    // --- LÓGICA DE FILTRADO CON VALIDACIÓN ---
-    const filterSelect = document.getElementById('category-filter');
-    const projects = document.querySelectorAll('.proyecto-item');
+// --- LÓGICA DE FILTRADO PARA MULTI-CATEGORÍA ---
+const filterSelect = document.getElementById('category-filter');
+const projects = document.querySelectorAll('.proyecto-item');
 
-    // Solo ejecutamos esto si estamos en la página que tiene el filtro
-    if (filterSelect) {
-        filterSelect.addEventListener('change', (e) => {
-            const selectedCategory = e.target.value;
-            projects.forEach(project => {
-                const projectCategory = project.getAttribute('data-category');
-                if (selectedCategory === 'all' || projectCategory === selectedCategory) {
-                    project.style.display = 'block';
-                    project.classList.add('fade-in');
-                } else {
-                    project.style.display = 'none';
-                }
-            });
+if (filterSelect) {
+    filterSelect.addEventListener('change', (e) => {
+        const selectedCategory = e.target.value;
+        
+        projects.forEach(project => {
+            // Obtenemos el string de categorías y lo convertimos en array
+            const categoriesAttr = project.getAttribute('data-category') || '';
+            const projectCategories = categoriesAttr.split(' '); // ['analysis', 'engineering']
+
+            const isVisible = selectedCategory === 'all' || projectCategories.includes(selectedCategory);
+
+            if (isVisible) {
+                project.style.display = 'block';
+                // Pequeño timeout para que la animación fade-in se note al cambiar
+                setTimeout(() => project.classList.add('fade-in'), 10);
+            } else {
+                project.style.display = 'none';
+                project.classList.remove('fade-in');
+            }
         });
-    }
+    });
+}
 
     init();
 });

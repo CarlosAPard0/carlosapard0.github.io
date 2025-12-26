@@ -398,13 +398,14 @@ legend{
 
 /* Estilo individual de la etiqueta */
 .tag {
-    background-color: #f0f2f5;
+    background-color: #ffffff;
     color: #475569;
     font-size: 0.75rem;
     font-weight: 600;
     padding: 4px 12px;
     border-radius: 50px;
     border: 1px solid #e2e8f0;
+    border-left-width: 4px;
     transition: all 0.3s ease;
     cursor: default;
 }
@@ -417,10 +418,32 @@ legend{
 }
 
 /* Opcional: Colores temáticos por categoría principal */
-[data-category="engineering"] .tag { border-left: 3px solid #3b82f6; } /* Azul */
-[data-category="analysis"] .tag { border-left: 3px solid #f59e0b; }    /* Naranja/Oro */
-[data-category="science"] .tag { border-left: 3px solid #10b981; }     /* Verde */
+/* --- COLORES TEMÁTICOS (SOPORTA MULTI-CATEGORÍA) --- */
 
+/* Si el proyecto incluye 'engineering' en cualquier posición */
+[data-category~="engineering"] .tag { 
+    border-left: 3px solid #3b82f6; /* Azul */
+} 
+
+/* Si el proyecto incluye 'analysis' en cualquier posición */
+[data-category~="analysis"] .tag { 
+    border-left: 3px solid #f59e0b; /* Naranja/Oro */
+} 
+
+/* Si el proyecto incluye 'science' en cualquier posición */
+[data-category~="science"] .tag { 
+    border-left: 3px solid #10b981; /* Verde */
+}
+
+/* Prioridad: Si es híbrido (como el de Netflix), puedes decidir cuál color domina 
+   o dejar que las reglas CSS se apliquen en orden */
+[data-category~="analysis"][data-category~="engineering"] .tag {
+    border-left: 3px solid #8b5cf6; /* Morado para proyectos híbridos (opcional) */
+}
+
+[data-category~="engineering"] .tag:hover { background-color: #eff6ff; }
+[data-category~="analysis"] .tag:hover { background-color: #fffbeb; }
+[data-category~="science"] .tag:hover { background-color: #ecfdf5; }
 /* --- ESTILOS DEL FILTRO DE CATEGORÍAS --- */
 
 .filter-container {
