@@ -28,7 +28,6 @@
 
                 <fieldset class="hero-technologies-container">
                     <legend data-i18n="hero-legend-tech">Tecnologías</legend>
-                    <div class="slider-wrapper">
                     <ul class="hero-technologies-list">
 
                         <li class="technology-item">
@@ -50,33 +49,11 @@
                             <span class="tech-caption">Apache Airflow</span>
                         </li>
                         <li class="technology-item">
-                            <img src="https://img.icons8.com/fluency/48/docker.png" alt="docker">
-                            <span class="tech-caption">Docker</span>
-                        </li>
-                        <li class="technology-item">
                             <img src="https://img.icons8.com/color/48/power-bi-2021.png" alt="power-bi-2021">
                             <span class="tech-caption">Power BI</span>
                         </li>
-                        
-                        <li class="technology-item">
-                            <img src="https://icon.icepanel.io/Technology/svg/Apache-Spark.svg">
-                            <span class="tech-caption">Apache Spark</span>
-                        </li>
-                        <li class="technology-item">
-                            <img src="https://icon.icepanel.io/Technology/svg/scikit-learn.svg">
-                            <span class="tech-caption">Scikit-learn</span>
-                        </li>
-                        <li class="technology-item">
-                            <img src="https://icon.icepanel.io/Technology/svg/TensorFlow.svg">
-                            <span class="tech-caption">TensorFlow</span>
-                        </li>
-                        <li class="technology-item">
-                            <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/light/langchain.png">
-                            <span class="tech-caption">LangChain</span>
-                        </li>
 
                     </ul>
-                    </div>
                 </fieldset>
 
             </div>
@@ -320,7 +297,7 @@ El objetivo principal es apoyar la toma de decisiones preventivas mediante model
                     <h3 data-i18n="proyecto-11-h3"></h3>
                     <div class="project-tags">
                         <span class="tag">Python</span>
-                        
+                        <span class="tag">Astra CLI</span>
                         <span class="tag">Apache Airflow</span>
                         <span class="tag">Docker</span>
                         <span class="tag">SQL</span>
@@ -331,23 +308,6 @@ El objetivo principal es apoyar la toma de decisiones preventivas mediante model
                     <p data-i18n="proyecto-11-p"></p>
                     <div class="proyecto-imagen"><img src="https://raw.githubusercontent.com/CarlosAPard0/SkyWatch-ETL-Meteorological-Data-Architecture-in-Azure/refs/heads/main/Diagram/Diagram.png" alt="Project image 11" /></div>
                     <div class="links"><a href="https://github.com/CarlosAPard0/SkyWatch-ETL-Meteorological-Data-Architecture-in-Azure/tree/main" target="_blank" data-i18n="link-ver-codigo">💻 Ver el Código y Detalles en GitHub</a></div>
-                </article>
-
-                <article class="proyecto-item" data-category="engineering">
-                    <h3 data-i18n="proyecto-12-h3"></h3>
-                    <div class="project-tags">
-                        <span class="tag">Apache Airflow</span>
-                        <span class="tag">Google Cloud Storage</span>
-                        <span class="tag">Google Dataproc Serverless</span>
-                        <span class="tag">PySpark</span>
-                        <span class="tag">BigQuery</span>
-                        <span class="tag">Docker</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">SQL</span>
-                    </div>
-                    <p data-i18n="proyecto-12-p"></p>
-                    <div class="proyecto-imagen"><img src="https://raw.githubusercontent.com/CarlosAPard0/E-Commerce-Data-Pipeline/refs/heads/main/Images/Diagram.png" alt="Project image 12" /></div>
-                    <div class="links"><a href="https://github.com/CarlosAPard0/E-Commerce-Data-Pipeline/tree/main" target="_blank" data-i18n="link-ver-codigo">💻 Ver el Código y Detalles en GitHub</a></div>
                 </article>
         </section>
         <nav class="back-nav">  
