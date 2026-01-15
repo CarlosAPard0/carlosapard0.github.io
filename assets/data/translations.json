@@ -98,7 +98,9 @@
         "proyecto-11-h3": "SkyWatch ETL: Arquitectura de Datos Meteorológicos en Azure",
         "proyecto-11-p": "Desarrollo de un pipeline ETL automatizado que integra la API de Open-Meteo con PostgreSQL en Azure. Utilizando Apache Airflow (Astro) y Docker, el sistema extrae métricas climáticas en tiempo real para Cuenca, Ecuador, aplica transformaciones lógicas para la detección de alertas climáticas y garantiza la persistencia de datos en una infraestructura de nube escalable.",
         "proyecto-12-h3": "Pipeline de Datos Híbrido: Orquestación de Spark Serverless con Airflow y BigQuery",
-        "proyecto-12-p": "Desarrollé un pipeline ETL automatizado que conecta la orquestación local con la infraestructura de Google Cloud. Utilizando Astro CLI (Airflow) para activar tareas en Dataproc Serverless, transformé datos crudos de e-commerce en información analítica enriquecida en BigQuery, implementando seguridad avanzada mediante roles IAM y transformaciones escalables con PySpark."
+        "proyecto-12-p": "Desarrollé un pipeline ETL automatizado que conecta la orquestación local con la infraestructura de Google Cloud. Utilizando Astro CLI (Airflow) para activar tareas en Dataproc Serverless, transformé datos crudos de e-commerce en información analítica enriquecida en BigQuery, implementando seguridad avanzada mediante roles IAM y transformaciones escalables con PySpark.",
+        "proyecto-13-h3": "Agente Personal de Viajes con IA",
+        "proyecto-13-p": "Un asistente de viajes inteligente que combina la potencia de agentes de IA con una interfaz intuitiva. Transforma descripciones naturales y preferencias personales en itinerarios detallados, listos para descargar en PDF."
     },
     "en": {
         "page-title": "Carlos A. Pardo — Portfolio",
@@ -198,6 +200,8 @@
         "proyecto-11-h3": "SkyWatch ETL: Weather Data Architecture on Azure",
         "proyecto-11-p": "Development of an automated ETL pipeline integrating the Open-Meteo API with Azure Database for PostgreSQL. Leveraging Apache Airflow (Astro) and Docker, the system extracts real-time weather metrics for Cuenca, Ecuador, applies logical transformations for weather alert detection, and ensures data persistence within a scalable cloud infrastructure.",
         "proyecto-12-h3": "Hybrid Cloud Data Pipeline: Orchestrating Serverless Spark with Airflow & BigQuery",
-        "proyecto-12-p": "Engineered an automated ETL pipeline that bridges local orchestration with Google Cloud infrastructure. Using Astro CLI (Airflow) to trigger Dataproc Serverless jobs, I transformed raw e-commerce data into enriched analytical insights within BigQuery, implementing advanced IAM security and scalable PySpark transformations."
+        "proyecto-12-p": "Engineered an automated ETL pipeline that bridges local orchestration with Google Cloud infrastructure. Using Astro CLI (Airflow) to trigger Dataproc Serverless jobs, I transformed raw e-commerce data into enriched analytical insights within BigQuery, implementing advanced IAM security and scalable PySpark transformations.",
+        "proyecto-13-h3": "Personal Travel Agent AI",
+        "proyecto-13-p": "An intelligent travel assistant that bridges the gap between AI agents and user experience. It transforms natural language prompts and personal preferences into structured, ready-to-print itineraries using a FastAPI and Streamlit architecture."
     }
 }
