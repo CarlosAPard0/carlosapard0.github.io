@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const allProjects = await getCollection('projects');
+const esProjects = allProjects
+  .filter((project) => project.id.startsWith('es/'))
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title="Catálogo de Proyectos | Carlos A. Pardo">
+  <Navbar lang="es" currentPath="/proyectos" />
+
+  <main class="max-w-6xl mx-auto px-6 py-12 space-y-10">
+    <header class="space-y-4">
+      <h1 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+        Catálogo de Proyectos
+      </h1>
+      <p class="text-zinc-400 max-w-2xl text-sm leading-relaxed">
+        Desarrollos clasificados por área técnica: pipelines de ingeniería de datos, modelado predictivo y sistemas autónomos de inteligencia artificial.
+      </p>
+
+      <div class="pt-2">
+        <label for="categoryFilter" class="sr-only">Filtrar por categoría</label>
+        <select
+          id="categoryFilter"
+          class="bg-zinc-900 border border-zinc-700 text-zinc-200 text-sm rounded-lg focus:ring-zinc-500 focus:border-zinc-500 block p-2.5 font-mono"
+        >
+          <option value="all">Todas las categorías</option>
+          <option value="engineering">Ingeniería de Datos</option>
+          <option value="science">Ciencia de Datos e IA</option>
+          <option value="analysis">Análisis de Datos & BI</option>
+        </select>
+      </div>
+    </header>
+
+    <section>
+      <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {esProjects.map((project) => (
+          <div data-category={project.data.category} class="project-item">
+            <ProjectCard
+              title={project.data.title}
+              description={project.data.description}
+              technologies={project.data.technologies}
+              githubUrl={project.data.githubUrl}
+              demoUrl={project.data.demoUrl}
+              image={project.data.image}
+              slug={project.id.replace(/^es\//, '')}
+              lang="es"
+            />
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="es" />
+
+  <script>
+    const filter = document.getElementById('categoryFilter') as HTMLSelectElement | null;
+    const items = document.querySelectorAll<HTMLElement>('.project-item');
+
+    if (filter) {
+      filter.addEventListener('change', () => {
+        const selected = filter.value;
+        items.forEach((item) => {
+          if (selected === 'all' || item.dataset.category === selected) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    }
+  </script>
+</BaseLayout>

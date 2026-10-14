@@ -1,0 +1,52 @@
+---
+import profileData from '../data/profile-and-skills.json';
+
+interface Props {
+  lang: 'es' | 'en';
+}
+
+const { lang } = Astro.props;
+const certifications = profileData.certifications || [];
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+  {certifications.map((cert) => {
+    const certName = (lang === 'es' && 'name_es' in cert && cert.name_es) ? cert.name_es : cert.name;
+    const isSpecial = cert.name.includes("DP-700") || cert.name.includes("Fabric");
+
+    return (
+      <a
+        href={cert.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class={`group p-4 rounded-xl border flex flex-col justify-between transition-all duration-300 ease-out hover:-translate-y-1.5 hover:bg-zinc-800/80 hover:border-zinc-400 hover:shadow-xl hover:shadow-black/40 ${
+          isSpecial
+            ? 'bg-zinc-900/60 border-zinc-700/80'
+            : 'bg-zinc-900/30 border-zinc-800/80'
+        }`}
+      >
+        <div class="space-y-2">
+          <div class="flex items-center justify-between text-[11px] font-mono text-zinc-400">
+            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-zinc-800/80 text-zinc-300 border border-zinc-700/60">
+              {cert.issuer}
+            </span>
+            <span class="text-zinc-500 group-hover:text-zinc-300 transition-colors">
+              &nearr;
+            </span>
+          </div>
+
+          <h3 class="text-xs sm:text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors leading-snug">
+            {certName}
+          </h3>
+        </div>
+
+        <div class="mt-3 pt-2 border-t border-zinc-800/60 flex items-center justify-between text-[11px] font-mono text-zinc-500 group-hover:text-zinc-400 transition-colors">
+          <span>{lang === 'es' ? 'Credencial oficial' : 'Official credential'}</span>
+          <span class="underline underline-offset-2 decoration-zinc-700 group-hover:decoration-zinc-400">
+            {lang === 'es' ? 'Verificar' : 'Verify'}
+          </span>
+        </div>
+      </a>
+    );
+  })}
+</div>

@@ -1,0 +1,57 @@
+---
+import profileData from '../data/profile-and-skills.json';
+
+interface Props {
+  lang: 'es' | 'en';
+}
+
+const { lang } = Astro.props;
+const courses = profileData.courses || [];
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+  {courses.map((course) => {
+    const courseName = (lang === 'es' && typeof course === 'object' && 'name_es' in course && course.name_es)
+      ? course.name_es
+      : (typeof course === 'object' ? course.name : course);
+    const issuer = typeof course === 'object' ? course.issuer : 'DataCamp';
+    const url = typeof course === 'object' ? course.url : null;
+
+    return (
+      <div class="group bg-zinc-900/40 border border-zinc-800 rounded-xl p-5 flex flex-col justify-between transition-all duration-300 ease-out hover:-translate-y-1.5 hover:bg-zinc-800/80 hover:border-zinc-400 hover:shadow-xl hover:shadow-black/40">
+        <div class="space-y-2.5">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-zinc-800/80 text-zinc-300 border border-zinc-700/60 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              {issuer}
+            </span>
+            <span class="text-zinc-500 font-mono text-[11px]">
+              {lang === 'es' ? 'Acreditación Oficial' : 'Official Track/Course'}
+            </span>
+          </div>
+
+          <h3 class="text-sm sm:text-base font-semibold text-zinc-100 group-hover:text-white transition-colors leading-snug">
+            {courseName}
+          </h3>
+        </div>
+
+        {url && (
+          <div class="mt-4 pt-3 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono">
+            <span class="text-zinc-500 group-hover:text-zinc-400 transition-colors">
+              {lang === 'es' ? 'Acreditación completada' : 'Statement of accomplishment'}
+            </span>
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-zinc-300 group-hover:text-white inline-flex items-center gap-1 font-medium underline underline-offset-4 decoration-zinc-600 group-hover:decoration-zinc-300 transition-colors"
+            >
+              <span>{lang === 'es' ? 'Ver credencial' : 'View credential'}</span>
+              <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">&nearr;</span>
+            </a>
+          </div>
+        )}
+      </div>
+    );
+  })}
+</div>

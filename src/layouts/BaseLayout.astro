@@ -1,0 +1,32 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Portafolio profesional - Carlos A. Pardo" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Directivas de seguridad del cliente -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://raw.githubusercontent.com; font-src 'self'; connect-src 'self'; frame-src 'self' https://app.powerbi.com https://*.powerbi.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'none';"
+    />
+  </head>
+  <body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col antialiased selection:bg-zinc-800 selection:text-zinc-100">
+    <slot />
+  </body>
+</html>

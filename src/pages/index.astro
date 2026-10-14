@@ -1,0 +1,225 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ExperienceTimeline from '../components/ExperienceTimeline.astro';
+import Certifications from '../components/Certifications.astro';
+import Courses from '../components/Courses.astro';
+import EducationLanguages from '../components/EducationLanguages.astro';
+import profileData from '../data/profile-and-skills.json';
+import { getCollection } from 'astro:content';
+
+const allProjects = await getCollection('projects');
+const featuredProjects = allProjects
+  .filter((project) => project.id.startsWith('es/') && project.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const skillCategories = [
+  {
+    category: "Cloud & Data Engineering",
+    skills: profileData.technical_skills.data_engineering_analytics
+  },
+  {
+    category: "IA & Machine Learning",
+    skills: profileData.technical_skills.ai_machine_learning
+  },
+  {
+    category: "Ciberseguridad & Infraestructura",
+    skills: profileData.technical_skills.networking_security_databases
+  },
+  {
+    category: "Backend & DevOps",
+    skills: profileData.technical_skills.devops_backend
+  }
+];
+---
+
+<BaseLayout title="Carlos A. Pardo | Ingeniería de Datos, Cloud & Ciberseguridad">
+  <Navbar lang="es" currentPath="/" />
+
+  <main class="max-w-6xl mx-auto px-6 py-12 space-y-24">
+    <!-- Hero / Identidad con Fotografía Vertical Prominente -->
+    <section class="pt-4 pb-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <!-- Contenido principal y descripción -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Ingeniero en Telecomunicaciones | Datos, Cloud & Ciberseguridad
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+            Ingeniería de Datos, Arquitecturas Cloud y Ciberseguridad.
+          </h1>
+
+          <p class="text-base sm:text-lg text-zinc-400 leading-relaxed">
+            Especializado en el ciclo integral del dato y la protección de infraestructuras tecnológicas: diseño de pipelines escalables con <strong class="text-zinc-200">Azure, Airflow y Spark</strong>, despliegue de <strong class="text-zinc-200">Agentes de IA</strong> asíncronos y auditorías técnicas continuas de <strong class="text-zinc-200">ciberseguridad y redes</strong>.
+          </p>
+
+          <!-- Enlaces Directos Sociales y Profesionales -->
+          <div class="flex flex-wrap items-center gap-3 pt-2 text-xs font-mono">
+            <a
+              href="https://github.com/CarlosAPard0"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-3.5 py-2 rounded-lg bg-zinc-900 border border-zinc-800 hover:border-zinc-500 text-zinc-200 hover:text-white transition duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md hover:shadow-zinc-950/20 inline-flex items-center gap-2"
+            >
+              <span>GitHub</span>
+              <span aria-hidden="true">&nearr;</span>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/carlos-a-pardo-27569a37a/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-3.5 py-2 rounded-lg bg-zinc-900 border border-zinc-800 hover:border-zinc-500 text-zinc-200 hover:text-white transition duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md hover:shadow-zinc-950/20 inline-flex items-center gap-2"
+            >
+              <span>LinkedIn</span>
+              <span aria-hidden="true">&nearr;</span>
+            </a>
+
+            <a
+              href="mailto:carlosandrespardocastro@gmail.com"
+              class="px-3.5 py-2 rounded-lg bg-zinc-900 border border-zinc-800 hover:border-zinc-500 text-zinc-200 hover:text-white transition duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md hover:shadow-zinc-950/20 inline-flex items-center gap-2"
+            >
+              <span>Email</span>
+              <span aria-hidden="true">&nearr;</span>
+            </a>
+
+            <a
+              href="/proyectos"
+              class="px-3.5 py-2 rounded-lg bg-zinc-800/80 border border-zinc-700/80 hover:border-zinc-500 text-zinc-100 hover:text-white transition duration-200 ease-out hover:-translate-y-0.5 hover:shadow-md hover:shadow-zinc-950/20 inline-flex items-center gap-1.5 font-semibold"
+            >
+              <span>Ver Proyectos</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Fotografía Personal Vertical Prominente -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-end">
+          <div class="w-48 sm:w-64 md:w-72 aspect-[3/4] rounded-2xl overflow-hidden border-2 border-zinc-700/80 shadow-2xl shadow-black/60 bg-zinc-900">
+            <img
+              src="/avatar.jpg"
+              alt="Fotografía de Carlos A. Pardo"
+              class="w-full h-full object-cover object-top"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Línea de Tiempo de Experiencia Profesional -->
+    <section class="space-y-8">
+      <div class="border-b border-zinc-800 pb-4">
+        <h2 class="text-2xl font-bold tracking-tight text-white">Trayectoria y Experiencia</h2>
+        <p class="text-xs text-zinc-400 mt-1 font-mono">
+          Funciones técnicas, administración de infraestructuras y proyectos de ingeniería de datos
+        </p>
+      </div>
+
+      <ExperienceTimeline lang="es" />
+    </section>
+
+    <!-- Proyectos Destacados -->
+    <section class="space-y-8">
+      <div class="flex items-center justify-between border-b border-zinc-800 pb-4">
+        <div>
+          <h2 class="text-2xl font-bold tracking-tight text-white">Proyectos Seleccionados</h2>
+          <p class="text-xs text-zinc-400 mt-1 font-mono">
+            Arquitecturas de datos end-to-end, analítica aplicada y sistemas inteligentes
+          </p>
+        </div>
+        <a
+          href="/proyectos"
+          class="text-xs sm:text-sm font-semibold text-zinc-300 hover:text-white transition flex items-center gap-1 font-mono bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-600 px-3 py-1.5 rounded-lg"
+        >
+          <span>Ver catálogo completo</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {featuredProjects.map((project) => (
+          <ProjectCard
+            title={project.data.title}
+            description={project.data.description}
+            technologies={project.data.technologies}
+            githubUrl={project.data.githubUrl}
+            demoUrl={project.data.demoUrl}
+            image={project.data.image}
+            slug={project.id.replace(/^es\//, '')}
+            lang="es"
+          />
+        ))}
+      </div>
+    </section>
+
+    <!-- Habilidades y Stack Técnico -->
+    <section class="space-y-8">
+      <div class="border-b border-zinc-800 pb-4">
+        <h2 class="text-2xl font-bold tracking-tight text-white">Habilidades y Stack Técnico</h2>
+        <p class="text-xs text-zinc-400 mt-1 font-mono">
+          Tecnologías, marcos de trabajo y herramientas dominadas en entornos de producción
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {skillCategories.map((cat) => (
+          <div class="bg-zinc-900/40 border border-zinc-800 rounded-xl p-5 space-y-3.5 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:bg-zinc-800/80 hover:border-zinc-400 hover:shadow-xl hover:shadow-black/40">
+            <h3 class="text-xs font-mono font-semibold text-zinc-200 uppercase tracking-wider border-b border-zinc-800/80 pb-2">
+              {cat.category}
+            </h3>
+            <div class="flex flex-wrap gap-1.5">
+              {cat.skills.map((skill: string) => (
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-zinc-800/60 text-zinc-300 border border-zinc-700/50">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Educación e Idiomas -->
+    <section class="space-y-8">
+      <div class="border-b border-zinc-800 pb-4">
+        <h2 class="text-2xl font-bold tracking-tight text-white">Educación e Idiomas</h2>
+        <p class="text-xs text-zinc-400 mt-1 font-mono">
+          Formación académica universitaria y competencias lingüísticas técnicas
+        </p>
+      </div>
+
+      <EducationLanguages lang="es" />
+    </section>
+
+    <!-- Certificaciones Oficiales -->
+    <section class="space-y-8">
+      <div class="border-b border-zinc-800 pb-4">
+        <h2 class="text-2xl font-bold tracking-tight text-white">Certificaciones Oficiales</h2>
+        <p class="text-xs text-zinc-400 mt-1 font-mono">
+          Acreditaciones de industria verificables en Ingeniería de Datos, IA, Ciberseguridad y Cloud
+        </p>
+      </div>
+
+      <Certifications lang="es" />
+    </section>
+
+    <!-- Cursos Aprobados y Especializaciones -->
+    <section class="space-y-8">
+      <div class="border-b border-zinc-800 pb-4">
+        <h2 class="text-2xl font-bold tracking-tight text-white">Cursos y Especializaciones</h2>
+        <p class="text-xs text-zinc-400 mt-1 font-mono">
+          Formación técnica completada y validada en contenedores, cloud, analítica y modelos de lenguaje
+        </p>
+      </div>
+
+      <Courses lang="es" />
+    </section>
+  </main>
+
+  <Footer lang="es" />
+</BaseLayout>

@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-zinc-950, #09090b);
+    color: var(--color-zinc-100, #f4f4f5);
+  }
+}

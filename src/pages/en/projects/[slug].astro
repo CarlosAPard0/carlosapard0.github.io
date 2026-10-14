@@ -1,0 +1,157 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Navbar from '../../../components/Navbar.astro';
+import Footer from '../../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const allProjects = await getCollection('projects');
+  const enProjects = allProjects.filter((p) => p.id.startsWith('en/'));
+
+  return enProjects.map((project) => ({
+    params: { slug: project.id.replace(/^en\//, '') },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+
+const categoryLabels: Record<string, string> = {
+  engineering: "Data Engineering",
+  science: "Data Science & AI",
+  analysis: "Data Analytics & BI",
+};
+---
+
+<BaseLayout title={`${project.data.title} | Technical Case Study`}>
+  <Navbar lang="en" currentPath={`/en/projects/${Astro.params.slug}`} />
+
+  <main class="max-w-4xl mx-auto px-6 py-12 space-y-12">
+    <!-- Top Navigation -->
+    <nav class="flex items-center justify-between text-xs font-mono border-b border-zinc-800 pb-4">
+      <a
+        href="/en/projects"
+        class="text-zinc-400 hover:text-zinc-100 transition-colors inline-flex items-center gap-1.5"
+      >
+        <span aria-hidden="true">&larr;</span>
+        <span>Back to catalog</span>
+      </a>
+      <span class="text-zinc-500 uppercase tracking-widest text-[10px]">
+        {categoryLabels[project.data.category] || project.data.category}
+      </span>
+    </nav>
+
+    <!-- Project Header -->
+    <header class="space-y-6">
+      <div class="space-y-3">
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+          {project.data.title}
+        </h1>
+        <p class="text-base text-zinc-400 leading-relaxed max-w-3xl">
+          {project.data.description}
+        </p>
+      </div>
+
+      <!-- Metadata & External Links -->
+      <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+        <div class="flex flex-wrap gap-1.5">
+          {project.data.technologies.map((tech) => (
+            <span class="px-2.5 py-1 text-xs font-mono rounded bg-zinc-900 text-zinc-300 border border-zinc-800">
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <div class="flex items-center gap-3 text-xs font-mono">
+          <a
+            href={project.data.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-3 py-1.5 rounded bg-zinc-900 hover:bg-zinc-800 text-zinc-200 border border-zinc-800 hover:border-zinc-700 transition inline-flex items-center gap-1"
+          >
+            <span>Repository</span>
+            <span aria-hidden="true">&nearr;</span>
+          </a>
+          {project.data.demoUrl && (
+            <a
+              href={project.data.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-3 py-1.5 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-100 border border-zinc-700 transition inline-flex items-center gap-1"
+            >
+              <span>Live Demo</span>
+              <span aria-hidden="true">&nearr;</span>
+            </a>
+          )}
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Architectural Image or Diagram -->
+    {project.data.image && (
+      <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 p-3 sm:p-4 shadow-xl shadow-black/40">
+        <img
+          src={project.data.image}
+          alt={`Architecture or interface for ${project.data.title}`}
+          class="w-full h-auto rounded-lg object-contain max-h-[550px] mx-auto"
+          loading="eager"
+        />
+      </div>
+    )}
+
+    <!-- Live Interactive Dashboard (Power BI) -->
+    {project.data.demoUrl && (
+      <section class="space-y-3">
+        <div class="flex items-center justify-between text-xs font-mono text-zinc-400">
+          <div class="flex items-center gap-2">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="font-medium text-zinc-200">Live Interactive Dashboard (Power BI)</span>
+          </div>
+          <a
+            href={project.data.demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-zinc-400 hover:text-zinc-200 transition-colors inline-flex items-center gap-1"
+          >
+            <span>Open in full screen</span>
+            <span aria-hidden="true">&nearr;</span>
+          </a>
+        </div>
+        <div class="relative w-full aspect-video rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 shadow-2xl shadow-black/50">
+          <iframe
+            title={`${project.data.title} Dashboard`}
+            src={project.data.demoUrl}
+            class="w-full h-full border-0"
+            allowfullscreen="true"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
+    )}
+
+    <!-- Technical Case Study Content -->
+    <article class="prose prose-invert prose-zinc max-w-none space-y-8 text-zinc-300 text-sm sm:text-base leading-relaxed [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-zinc-100 [&_h3]:border-b [&_h3]:border-zinc-800/80 [&_h3]:pb-2 [&_h3]:mt-10 [&_p]:text-zinc-400 [&_p]:leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2 [&_li]:text-zinc-400 [&_strong]:text-zinc-200 [&_code]:font-mono [&_code]:text-xs [&_code]:bg-zinc-900 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:border [&_code]:border-zinc-800">
+      <Content />
+    </article>
+
+    <!-- Detail View Footer Navigation -->
+    <div class="pt-8 border-t border-zinc-800 flex justify-between items-center text-xs font-mono">
+      <a
+        href="/en/projects"
+        class="text-zinc-400 hover:text-zinc-100 transition-colors inline-flex items-center gap-1.5"
+      >
+        <span aria-hidden="true">&larr;</span>
+        <span>Back to all projects</span>
+      </a>
+      <a
+        href="#top"
+        class="text-zinc-500 hover:text-zinc-300 transition-colors"
+      >
+        Back to top &uarr;
+      </a>
+    </div>
+  </main>
+
+  <Footer lang="en" />
+</BaseLayout>

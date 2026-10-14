@@ -1,0 +1,121 @@
+---
+import profileData from '../data/profile-and-skills.json';
+
+interface Props {
+  lang: 'es' | 'en';
+}
+
+const { lang } = Astro.props;
+const { education, languages } = profileData;
+
+const spanishLevel = languages.spanish[lang];
+const englishLevel = languages.english[lang];
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <!-- Card de Formación Académica -->
+  <div class="group bg-zinc-900/40 border border-zinc-800 rounded-xl p-6 flex flex-col justify-between transition-all duration-300 ease-out hover:-translate-y-1.5 hover:bg-zinc-800/80 hover:border-zinc-400 hover:shadow-xl hover:shadow-black/40">
+    <div class="space-y-4">
+      <div class="flex items-center justify-between text-xs font-mono">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-zinc-800/80 text-zinc-300 border border-zinc-700/60 font-medium">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          {lang === 'es' ? 'Formación Académica' : 'Academic Education'}
+        </span>
+        <span class="text-zinc-500 font-mono text-xs">
+          {lang === 'es' ? 'Maestría & Grado' : "Master's & B.S."}
+        </span>
+      </div>
+
+      <h3 class="text-lg font-semibold tracking-tight text-zinc-100 group-hover:text-white transition-colors">
+        {lang === 'es' ? 'Educación' : 'Education'}
+      </h3>
+
+      <div class="space-y-3 pt-1">
+        {education.map((item) => (
+          <div class="p-3 rounded-lg bg-zinc-900/60 border border-zinc-800/80 group-hover:border-zinc-700/60 transition-colors">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span class="text-zinc-200 font-semibold">{item.degree[lang]}</span>
+              <span class="px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700/50 text-[11px] inline-flex items-center gap-1.5">
+                {item.status.es === 'En curso' ? (
+                  <>
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>{item.status[lang]}</span>
+                  </>
+                ) : (
+                  <span>{item.status[lang]} {item.year ? `• ${item.year}` : ''}</span>
+                )}
+              </span>
+            </div>
+            <p class="text-xs text-zinc-400 font-mono mt-0.5">
+              {item.institution[lang]}
+            </p>
+            <p class="text-xs text-zinc-400 mt-1.5 leading-relaxed">
+              {item.description[lang]}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-6 pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono text-zinc-500 group-hover:text-zinc-400">
+      <span>{lang === 'es' ? 'Grado' : 'Undergraduate'}: Universidad de Cuenca</span>
+      <span class="text-zinc-400 font-semibold">{lang === 'es' ? 'UNIR (En curso)' : 'UNIR (Active)'}</span>
+    </div>
+  </div>
+
+  <!-- Card de Idiomas -->
+  <div class="group bg-zinc-900/40 border border-zinc-800 rounded-xl p-6 flex flex-col justify-between transition-all duration-300 ease-out hover:-translate-y-1.5 hover:bg-zinc-800/80 hover:border-zinc-400 hover:shadow-xl hover:shadow-black/40">
+    <div class="space-y-4">
+      <div class="flex items-center justify-between text-xs font-mono">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-zinc-800/80 text-zinc-300 border border-zinc-700/60 font-medium">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          {lang === 'es' ? 'Competencia Lingüística' : 'Language Skills'}
+        </span>
+        <span class="text-zinc-500 font-mono text-xs">
+          {lang === 'es' ? 'Inglés B2' : 'English B2'}
+        </span>
+      </div>
+
+      <h3 class="text-lg font-semibold tracking-tight text-zinc-100 group-hover:text-white transition-colors">
+        {lang === 'es' ? 'Idiomas' : 'Languages'}
+      </h3>
+
+      <div class="space-y-3 pt-1">
+        <!-- Español -->
+        <div class="p-3 rounded-lg bg-zinc-900/60 border border-zinc-800/80 group-hover:border-zinc-700/60 transition-colors">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-zinc-200 font-semibold">{lang === 'es' ? 'Español' : 'Spanish'}</span>
+            <span class="px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700/50 text-[11px]">
+              {spanishLevel}
+            </span>
+          </div>
+          <p class="text-xs text-zinc-400 mt-1.5 leading-relaxed">
+            {lang === 'es'
+              ? 'Lengua materna.'
+              : 'Native proficiency.'}
+          </p>
+        </div>
+
+        <!-- Inglés -->
+        <div class="p-3 rounded-lg bg-zinc-900/60 border border-zinc-800/80 group-hover:border-zinc-700/60 transition-colors">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-zinc-200 font-semibold">{lang === 'es' ? 'Inglés' : 'English'}</span>
+            <span class="px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700/50 text-[11px]">
+              {englishLevel}
+            </span>
+          </div>
+          <p class="text-xs text-zinc-400 mt-1.5 leading-relaxed">
+            {lang === 'es'
+              ? 'Lectura e interpretación técnica de documentación especializada, manuales y literatura técnica.'
+              : 'Technical reading comprehension of specialized documentation, manuals, and technical literature.'}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono text-zinc-500 group-hover:text-zinc-400">
+      <span>{lang === 'es' ? 'Nivel de inglés' : 'English level'}: B2</span>
+      <span class="text-zinc-400 font-semibold">CEFR</span>
+    </div>
+  </div>
+</div>

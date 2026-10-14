@@ -1,0 +1,87 @@
+---
+interface Props {
+  lang: 'es' | 'en';
+  currentPath: string;
+}
+
+const { lang, currentPath } = Astro.props;
+
+// Función de mapeo simétrico estricto entre rutas
+function getSymmetricPath(pathname: string, targetLanguage: 'es' | 'en'): string {
+  // Normalizar ruta eliminando trailing slash excepto para '/'
+  const clean = pathname.length > 1 && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+
+  if (targetLanguage === 'en') {
+    if (clean === '' || clean === '/') return '/en';
+    if (clean === '/proyectos') return '/en/projects';
+    if (clean.startsWith('/proyectos/')) {
+      const slug = clean.replace('/proyectos/', '');
+      return `/en/projects/${slug}`;
+    }
+    // Si ya está en inglés
+    if (clean.startsWith('/en')) return clean;
+    return '/en';
+  } else {
+    // targetLanguage === 'es'
+    if (clean === '/en' || clean === '/en/') return '/';
+    if (clean === '/en/projects') return '/proyectos';
+    if (clean.startsWith('/en/projects/')) {
+      const slug = clean.replace('/en/projects/', '');
+      return `/proyectos/${slug}`;
+    }
+    // Si ya está en español
+    return clean;
+  }
+}
+
+const targetEs = getSymmetricPath(currentPath, 'es');
+const targetEn = getSymmetricPath(currentPath, 'en');
+
+const t = {
+  es: {
+    projects: "Proyectos",
+  },
+  en: {
+    projects: "Projects",
+  }
+}[lang];
+---
+
+<header class="sticky top-0 z-50 backdrop-blur-md bg-zinc-950/80 border-b border-zinc-800/80">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a
+      href={lang === 'es' ? '/' : '/en'}
+      class="font-bold text-lg text-zinc-100 hover:text-white transition tracking-tight flex items-center gap-2 group"
+    >
+      <span class="w-2 h-2 rounded-full bg-zinc-400 group-hover:bg-white transition-colors"></span>
+      <span>Carlos A. Pardo</span>
+    </a>
+
+    <nav class="flex items-center gap-6 text-sm">
+      <a
+        href={lang === 'es' ? '/proyectos' : '/en/projects'}
+        class="text-zinc-400 hover:text-zinc-100 transition-colors font-medium"
+      >
+        {t.projects}
+      </a>
+
+      <!-- Selector de idioma con enrutamiento simétrico -->
+      <div class="flex items-center bg-zinc-900 border border-zinc-800 rounded-lg p-1 text-xs font-mono">
+        <a
+          href={targetEs}
+          class={`px-2.5 py-1 rounded transition-colors duration-150 ${lang === 'es' ? 'bg-zinc-800 text-zinc-100 font-semibold' : 'text-zinc-400 hover:text-zinc-200'}`}
+          title="Cambiar a Español (mantiene página actual)"
+        >
+          ES
+        </a>
+        <a
+          href={targetEn}
+          class={`px-2.5 py-1 rounded transition-colors duration-150 ${lang === 'en' ? 'bg-zinc-800 text-zinc-100 font-semibold' : 'text-zinc-400 hover:text-zinc-200'}`}
+          title="Switch to English (preserves current page)"
+        >
+          EN
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,74 @@
+---
+import { getCollection, render } from 'astro:content';
+
+interface Props {
+  lang: 'es' | 'en';
+}
+
+const { lang } = Astro.props;
+
+const allExperience = await getCollection('experience');
+const localizedExperience = allExperience
+  .filter((entry) => entry.id.startsWith(`${lang}/`))
+  .sort((a, b) => a.data.order - b.data.order);
+
+// Render markdown content for each experience entry
+const renderedEntries = await Promise.all(
+  localizedExperience.map(async (entry) => {
+    const { Content } = await render(entry);
+    return { entry, Content };
+  })
+);
+---
+
+<div class="relative border-l border-zinc-800 ml-3 sm:ml-4 space-y-10 pl-6 sm:pl-8">
+  {renderedEntries.map(({ entry, Content }) => (
+    <div class="relative group">
+      <!-- Nodo de la línea temporal -->
+      <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full bg-zinc-900 border-2 border-zinc-600 group-hover:border-zinc-300 group-hover:bg-zinc-800 transition-colors duration-200"></div>
+
+      <!-- Contenedor de la experiencia -->
+      <div class="bg-zinc-900/40 border border-zinc-800/90 rounded-xl p-5 sm:p-6 transition-all duration-300 ease-out hover:-translate-y-1.5 hover:bg-zinc-800/80 hover:border-zinc-400 hover:shadow-xl hover:shadow-black/40 space-y-4">
+        <!-- Encabezado de la experiencia -->
+        <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-zinc-800/60 pb-3">
+          <div>
+            <h3 class="text-base sm:text-lg font-semibold text-zinc-100 tracking-tight">
+              {entry.data.role}
+            </h3>
+            <p class="text-xs sm:text-sm text-zinc-400 font-medium mt-0.5">
+              {entry.data.company}
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2">
+            {entry.data.current && (
+              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-zinc-800 text-zinc-200 border border-zinc-700">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                {lang === 'es' ? 'Actual' : 'Current'}
+              </span>
+            )}
+            <span class="text-xs font-mono text-zinc-400 bg-zinc-900 border border-zinc-800 px-2.5 py-1 rounded">
+              {entry.data.period}
+            </span>
+          </div>
+        </div>
+
+        <!-- Badges de tecnologías clave -->
+        {entry.data.technologies && entry.data.technologies.length > 0 && (
+          <div class="flex flex-wrap gap-1.5">
+            {entry.data.technologies.map((tech) => (
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-zinc-800/50 text-zinc-400 border border-zinc-700/50">
+                {tech}
+              </span>
+            ))}
+          </div>
+        )}
+
+        <!-- Detalles / Responsabilidades en Markdown -->
+        <div class="text-xs sm:text-sm text-zinc-300 leading-relaxed space-y-2 [&_ul]:list-disc [&_ul]:pl-4 [&_ul]:space-y-1.5 [&_li]:text-zinc-400 [&_strong]:text-zinc-200">
+          <Content />
+        </div>
+      </div>
+    </div>
+  ))}
+</div>

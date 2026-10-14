@@ -1,0 +1,57 @@
+---
+interface Props {
+  lang: 'es' | 'en';
+}
+
+const { lang } = Astro.props;
+
+const labels = {
+  es: {
+    contactTitle: "Contacto & Redes Profesionales",
+    availability: "Disponible para proyectos en Ingeniería de Datos, Cloud (Azure/GCP) y Desarrollo de Agentes IA.",
+    rights: "Todos los derechos reservados."
+  },
+  en: {
+    contactTitle: "Contact & Professional Networks",
+    availability: "Available for Data Engineering, Cloud (Azure/GCP), and AI Agent development projects.",
+    rights: "All rights reserved."
+  }
+}[lang];
+---
+
+<footer class="mt-20 border-t border-zinc-800/80 bg-zinc-950/60 py-12">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="space-y-1 text-center md:text-left">
+      <h3 class="font-bold text-zinc-100 text-base">{labels.contactTitle}</h3>
+      <p class="text-xs text-zinc-400 max-w-md">{labels.availability}</p>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-center gap-4 text-sm">
+      <a
+        href="https://github.com/CarlosAPard0"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white transition"
+      >
+        GitHub
+      </a>
+      <a
+        href="https://www.linkedin.com/in/carlos-a-pardo-27569a37a/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white transition"
+      >
+        LinkedIn
+      </a>
+      <a
+        href="mailto:carlosandrespardocastro@gmail.com"
+        class="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white transition"
+      >
+        Email
+      </a>
+    </div>
+  </div>
+  <div class="max-w-6xl mx-auto px-6 mt-8 pt-6 border-t border-zinc-900 text-center text-xs text-zinc-600">
+    © {new Date().getFullYear()} Carlos A. Pardo. {labels.rights}
+  </div>
+</footer>
